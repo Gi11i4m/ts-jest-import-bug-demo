@@ -1,15 +1,18 @@
 const { defaults: tsjPreset } = require("ts-jest/presets");
 
 module.exports = {
-  ...tsjPreset,
-  preset: "react-native",
+  // ...tsjPreset,
+  // preset: "jest-expo",
+
   transform: {
-    ...tsjPreset.transform,
-    "\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    // ...tsjPreset.transform,
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.jsx?$": "babel-jest"
   },
+  transformIgnorePatterns: ["/node_modules/@unimodules/build/.+.js$"],
   globals: {
     "ts-jest": {
-      babelConfig: true
+      // babelConfig: true
     }
   }
 };
